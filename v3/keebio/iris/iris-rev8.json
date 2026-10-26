@@ -158,7 +158,39 @@
                   "label": "Color",
                   "type": "color",
                   "content": ["id_qmk_rgb_matrix_color", 3, 4]
+                }
+              ]
+            },
+            {
+              "showIf": "{id_firmware_version} >= 2",
+              "content": [
+                {
+                  "label": "RGB Sleep Timer",
+                  "type": "dropdown",
+                  "options": [
+                    ["Never", 0],
+                    ["5 mins", 5],
+                    ["10 mins", 10],
+                    ["15 mins", 15],
+                    ["30 mins", 30],
+                    ["60 mins", 60],
+                    ["120 mins", 120],
+                    ["Custom", 255]
+                  ],
+                  "content": ["id_via_per_key_sleep_timer", 0, 7]
                 },
+                {
+                  "showIf": "{id_via_per_key_sleep_timer} == 255",
+                  "label": "Custom Sleep Timer (mins)",
+                  "type": "range",
+                  "options": [1, 1440],
+                  "content": ["id_via_per_key_sleep_timer_custom", 0, 8]
+                }
+              ]
+            },
+            {
+              "showIf": "{id_firmware_version} >= 1",
+              "content": [
                 {
                   "showIf": "{id_qmk_rgb_matrix_effect} == 45",
                   "label": "Per-Key Colors",
