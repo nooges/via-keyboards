@@ -7,7 +7,220 @@
     "cols": 9
   },
   "keycodes": ["qmk_rgb_matrix_keycodes"],
-  "menus": ["qmk_rgb_matrix"],
+  "menus": [
+    {
+      "label": "Lighting",
+      "content": [
+        {
+          "label": "Backlight",
+          "content": [
+            {
+              "label": "Brightness",
+              "type": "range",
+              "options": [0, 255],
+              "content": ["id_qmk_rgb_matrix_brightness", 3, 1]
+            },
+            {
+              "showIf": "{id_firmware_version} < 1",
+              "content": [
+                {
+                  "label": "Effect",
+                  "type": "dropdown",
+                  "content": ["id_qmk_rgb_matrix_effect", 3, 2],
+                  "options": [
+                    ["All Off", 0],
+                    ["Solid Color", 1],
+                    ["Alphas Mods", 2],
+                    ["Gradient Up/Down", 3],
+                    ["Gradient Left/Right", 4],
+                    ["Breathing", 5],
+                    ["Band Sat.", 6],
+                    ["Band Val.", 7],
+                    ["Pinwheel Sat.", 8],
+                    ["Pinwheel Val.", 9],
+                    ["Spiral Sat.", 10],
+                    ["Spiral Val.", 11],
+                    ["Cycle All", 12],
+                    ["Cycle Left/Right", 13],
+                    ["Cycle Up/Down", 14],
+                    ["Rainbow Moving Chevron", 15],
+                    ["Cycle Out/In", 16],
+                    ["Cycle Out/In Dual", 17],
+                    ["Cycle Pinwheel", 18],
+                    ["Cycle Spiral", 19],
+                    ["Dual Beacon", 20],
+                    ["Rainbow Beacon", 21],
+                    ["Rainbow Pinwheels", 22],
+                    ["Raindrops", 23],
+                    ["Jellybean Raindrops", 24],
+                    ["Hue Breathing", 25],
+                    ["Hue Pendulum", 26],
+                    ["Hue Wave", 27],
+                    ["Pixel Rain", 28],
+                    ["Pixel Flow", 29],
+                    ["Pixel Fractal", 30],
+                    ["Typing Heatmap", 31],
+                    ["Digital Rain", 32],
+                    ["Solid Reactive Simple", 33],
+                    ["Solid Reactive", 34],
+                    ["Solid Reactive Wide", 35],
+                    ["Solid Reactive Multi Wide", 36],
+                    ["Solid Reactive Cross", 37],
+                    ["Solid Reactive Multi Cross", 38],
+                    ["Solid Reactive Nexus", 39],
+                    ["Solid Reactive Multi Nexus", 40],
+                    ["Splash", 41],
+                    ["Multi Splash", 42],
+                    ["Solid Splash", 43],
+                    ["Solid Multi Splash", 44]
+                  ]
+                },
+                {
+                  "showIf": "{id_qmk_rgb_matrix_effect} != 0",
+                  "label": "Effect Speed",
+                  "type": "range",
+                  "options": [0, 255],
+                  "content": ["id_qmk_rgb_matrix_effect_speed", 3, 3]
+                },
+                {
+                  "showIf": "{id_qmk_rgb_matrix_effect} != 0 && {id_qmk_rgb_matrix_effect} != 24 && {id_qmk_rgb_matrix_effect} != 28 && {id_qmk_rgb_matrix_effect} != 29 && {id_qmk_rgb_matrix_effect} != 32",
+                  "label": "Color",
+                  "type": "color",
+                  "content": ["id_qmk_rgb_matrix_color", 3, 4]
+                }
+              ]
+            },
+            {
+              "showIf": "{id_firmware_version} >= 1",
+              "content": [
+                {
+                  "label": "Effect",
+                  "type": "dropdown",
+                  "content": ["id_qmk_rgb_matrix_effect", 3, 2],
+                  "options": [
+                    ["All Off", 0],
+                    ["Solid Color", 1],
+                    ["Alphas Mods", 2],
+                    ["Gradient Up/Down", 3],
+                    ["Gradient Left/Right", 4],
+                    ["Breathing", 5],
+                    ["Band Sat.", 6],
+                    ["Band Val.", 7],
+                    ["Pinwheel Sat.", 8],
+                    ["Pinwheel Val.", 9],
+                    ["Spiral Sat.", 10],
+                    ["Spiral Val.", 11],
+                    ["Cycle All", 12],
+                    ["Cycle Left/Right", 13],
+                    ["Cycle Up/Down", 14],
+                    ["Rainbow Moving Chevron", 15],
+                    ["Cycle Out/In", 16],
+                    ["Cycle Out/In Dual", 17],
+                    ["Cycle Pinwheel", 18],
+                    ["Cycle Spiral", 19],
+                    ["Dual Beacon", 20],
+                    ["Rainbow Beacon", 21],
+                    ["Rainbow Pinwheels", 22],
+                    ["Raindrops", 23],
+                    ["Jellybean Raindrops", 24],
+                    ["Hue Breathing", 25],
+                    ["Hue Pendulum", 26],
+                    ["Hue Wave", 27],
+                    ["Pixel Rain", 28],
+                    ["Pixel Flow", 29],
+                    ["Pixel Fractal", 30],
+                    ["Typing Heatmap", 31],
+                    ["Digital Rain", 32],
+                    ["Solid Reactive Simple", 33],
+                    ["Solid Reactive", 34],
+                    ["Solid Reactive Wide", 35],
+                    ["Solid Reactive Multi Wide", 36],
+                    ["Solid Reactive Cross", 37],
+                    ["Solid Reactive Multi Cross", 38],
+                    ["Solid Reactive Nexus", 39],
+                    ["Solid Reactive Multi Nexus", 40],
+                    ["Splash", 41],
+                    ["Multi Splash", 42],
+                    ["Solid Splash", 43],
+                    ["Solid Multi Splash", 44],
+                    ["Direct (Per-Key)", 45]
+                  ]
+                },
+                {
+                  "showIf": "{id_qmk_rgb_matrix_effect} != 0 && {id_qmk_rgb_matrix_effect} != 45",
+                  "label": "Effect Speed",
+                  "type": "range",
+                  "options": [0, 255],
+                  "content": ["id_qmk_rgb_matrix_effect_speed", 3, 3]
+                },
+                {
+                  "showIf": "{id_qmk_rgb_matrix_effect} != 0 && {id_qmk_rgb_matrix_effect} != 24 && {id_qmk_rgb_matrix_effect} != 28 && {id_qmk_rgb_matrix_effect} != 29 && {id_qmk_rgb_matrix_effect} != 32 && {id_qmk_rgb_matrix_effect} != 45",
+                  "label": "Color",
+                  "type": "color",
+                  "content": ["id_qmk_rgb_matrix_color", 3, 4]
+                }
+              ]
+            },
+            {
+              "showIf": "{id_firmware_version} >= 2",
+              "content": [
+                {
+                  "label": "RGB Sleep Timer",
+                  "type": "dropdown",
+                  "options": [
+                    ["Never", 0],
+                    ["5 mins", 5],
+                    ["10 mins", 10],
+                    ["15 mins", 15],
+                    ["30 mins", 30],
+                    ["60 mins", 60],
+                    ["120 mins", 120],
+                    ["Custom", 255]
+                  ],
+                  "content": ["id_via_per_key_sleep_timer", 0, 7]
+                },
+                {
+                  "showIf": "{id_via_per_key_sleep_timer} == 255",
+                  "label": "Custom Sleep Timer (mins)",
+                  "type": "range",
+                  "options": [1, 1440],
+                  "content": ["id_via_per_key_sleep_timer_custom", 0, 8]
+                }
+              ]
+            },
+            {
+              "showIf": "{id_firmware_version} >= 1",
+              "content": [
+                {
+                  "showIf": "{id_qmk_rgb_matrix_effect} == 45",
+                  "label": "Per-Key Colors",
+                  "type": "color-palette",
+                  "content": ["id_qmk_rgb_matrix_color", 3, 4]
+                },
+                {
+                  "showIf": "{id_qmk_rgb_matrix_effect} == 45",
+                  "label": "Underglow Color",
+                  "type": "color",
+                  "content": ["id_via_per_key_underglow", 0, 2]
+                }
+              ]
+            },
+            {
+              "showIf": "{id_firmware_version} >= 2",
+              "content": [
+                {
+                  "showIf": "{id_qmk_rgb_matrix_effect} != 45",
+                  "label": "Status Indicators",
+                  "type": "color-palette",
+                  "content": ["id_via_per_key_indicators", 0, 5]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
   "layouts": {
     "labels": [
       "Left Macropad",
@@ -26,154 +239,154 @@
         {
           "d": true
         },
-        "5,0\n\n\n1,2",
+        "5,0\nl56\n\n1,2",
         {
           "c": "#aaaaaa"
         },
-        "5,0\n\n\n1,1",
+        "5,0\nl56\n\n1,1",
         {
           "x": 0.25
         },
-        "5,0\n\n\n1,0\n\n\n\n\n\ne0",
+        "5,0\nl56\n\n1,0\n\n\n\n\n\ne0",
         {
           "x": 1.5,
           "c": "#777777"
         },
-        "5,2",
+        "5,2\nl0",
         {
           "x": 0.25,
           "c": "#cccccc"
         },
-        "5,3",
-        "5,4",
-        "5,5",
-        "5,6",
+        "5,3\nl2",
+        "5,4\nl3",
+        "5,5\nl5",
+        "5,6\nl6",
         {
           "x": 0.25,
           "c": "#aaaaaa"
         },
-        "5,7",
-        "5,8",
+        "5,7\nl7",
+        "5,8\nl9",
         {
           "x": 1
         },
-        "11,1",
-        "11,2",
+        "11,1\nl69",
+        "11,2\nl67",
         {
           "x": 0.25,
           "c": "#cccccc"
         },
-        "11,3",
-        "11,4",
-        "11,5",
-        "11,6",
+        "11,3\nl66",
+        "11,4\nl64",
+        "11,5\nl63",
+        "11,6\nl61",
         {
           "x": 0.25
         },
-        "11,7",
-        "11,8\n\n\n4,0\n\n\n\n\n\ne1",
+        "11,7\nl60",
+        "11,8\nl58\n\n4,0\n\n\n\n\n\ne1",
         {
           "x": 0.75
         },
-        "11,8\n\n\n4,1"
+        "11,8\nl58\n\n4,1"
       ],
       [
         {
           "y": 0.25,
           "d": true
         },
-        "0,0\n\n\n0,1",
+        "0,0\nl55\n\n0,1",
         {
           "d": true
         },
-        "0,1\n\n\n0,1",
+        "0,1\nl54\n\n0,1",
         {
           "x": 0.25,
           "c": "#aaaaaa"
         },
-        "0,0\n\n\n0,0",
-        "0,1\n\n\n0,0",
+        "0,0\nl55\n\n0,0",
+        "0,1\nl54\n\n0,0",
         {
           "x": 0.5
         },
-        "0,2",
+        "0,2\nl16",
         {
           "c": "#cccccc"
         },
-        "0,3",
-        "0,4",
-        "0,5",
-        "0,6",
-        "0,7",
-        "0,8",
+        "0,3\nl15",
+        "0,4\nl14",
+        "0,5\nl13",
+        "0,6\nl12",
+        "0,7\nl11",
+        "0,8\nl10",
         {
           "x": 1
         },
-        "6,0",
-        "6,1",
-        "6,2",
-        "6,3",
-        "6,4",
-        "6,5",
+        "6,0\nl70",
+        "6,1\nl71",
+        "6,2\nl72",
+        "6,3\nl73",
+        "6,4\nl74",
+        "6,5\nl75",
         {
           "c": "#aaaaaa"
         },
-        "6,6\n\n\n5,0",
-        "6,7\n\n\n5,0",
-        "6,8",
+        "6,6\nl76\n\n5,0",
+        "6,7\nl77\n\n5,0",
+        "6,8\nl78",
         {
           "x": 0.75,
           "w": 2
         },
-        "6,7\n\n\n5,1"
+        "6,7\nl77\n\n5,1"
       ],
       [
         {
           "c": "#cccccc",
           "d": true
         },
-        "1,0\n\n\n0,1",
+        "1,0\nl52\n\n0,1",
         {
           "d": true
         },
-        "1,1\n\n\n0,1",
+        "1,1\nl53\n\n0,1",
         {
           "x": 0.25,
           "c": "#aaaaaa"
         },
-        "1,0\n\n\n0,0",
-        "1,1\n\n\n0,0",
+        "1,0\nl52\n\n0,0",
+        "1,1\nl53\n\n0,0",
         {
           "x": 0.5,
           "w": 1.5
         },
-        "1,2",
+        "1,2\nl17",
         {
           "c": "#cccccc"
         },
-        "1,3",
-        "1,4",
-        "1,5",
-        "1,6",
-        "1,7",
+        "1,3\nl18",
+        "1,4\nl19",
+        "1,5\nl20",
+        "1,6\nl21",
+        "1,7\nl22",
         {
           "x": 1
         },
-        "7,0",
-        "7,1",
-        "7,2",
-        "7,3",
-        "7,4",
-        "7,5",
-        "7,6",
+        "7,0\nl87",
+        "7,1\nl86",
+        "7,2\nl85",
+        "7,3\nl84",
+        "7,4\nl83",
+        "7,5\nl82",
+        "7,6\nl81",
         {
           "w": 1.5
         },
-        "7,7\n\n\n6,0",
+        "7,7\nl80\n\n6,0",
         {
           "c": "#aaaaaa"
         },
-        "7,8",
+        "7,8\nl79",
         {
           "x": 1.5,
           "w": 1.25,
@@ -182,55 +395,55 @@
           "h2": 1,
           "x2": -0.25
         },
-        "7,7\n\n\n6,1"
+        "7,7\nl80\n\n6,1"
       ],
       [
         {
           "c": "#cccccc",
           "d": true
         },
-        "2,0\n\n\n0,1",
+        "2,0\nl51\n\n0,1",
         {
           "d": true
         },
-        "2,1\n\n\n0,1",
+        "2,1\nl50\n\n0,1",
         {
           "x": 0.25,
           "c": "#aaaaaa"
         },
-        "2,0\n\n\n0,0",
-        "2,1\n\n\n0,0",
+        "2,0\nl51\n\n0,0",
+        "2,1\nl50\n\n0,0",
         {
           "x": 0.5,
           "w": 1.75
         },
-        "2,2",
+        "2,2\nl28",
         {
           "c": "#cccccc"
         },
-        "2,3",
-        "2,4",
-        "2,5",
-        "2,6",
-        "2,7",
+        "2,3\nl27",
+        "2,4\nl26",
+        "2,5\nl25",
+        "2,6\nl24",
+        "2,7\nl23",
         {
           "x": 1
         },
-        "8,0",
-        "8,1",
-        "8,2",
-        "8,3",
-        "8,4",
-        "8,5",
+        "8,0\nl88",
+        "8,1\nl89",
+        "8,2\nl90",
+        "8,3\nl91",
+        "8,4\nl92",
+        "8,5\nl93",
         {
           "c": "#777777",
           "w": 2.25
         },
-        "8,7\n\n\n6,0",
+        "8,7\nl94\n\n6,0",
         {
           "c": "#aaaaaa"
         },
-        "8,8",
+        "8,8\nl95",
         {
           "x": 0.5,
           "c": "#cccccc"
@@ -241,141 +454,141 @@
         {
           "d": true
         },
-        "3,0\n\n\n0,1",
+        "3,0\nl48\n\n0,1",
         {
           "d": true
         },
-        "3,1\n\n\n0,1",
+        "3,1\nl49\n\n0,1",
         {
           "x": 0.25,
           "c": "#aaaaaa"
         },
-        "3,0\n\n\n0,0",
-        "3,1\n\n\n0,0",
+        "3,0\nl48\n\n0,0",
+        "3,1\nl49\n\n0,0",
         {
           "x": 0.5,
           "w": 2.25
         },
-        "3,2\n\n\n2,0",
+        "3,2\nl29\n\n2,0",
         {
           "c": "#cccccc"
         },
-        "3,4",
-        "3,5",
-        "3,6",
-        "3,7",
-        "3,8",
+        "3,4\nl30",
+        "3,5\nl31",
+        "3,6\nl32",
+        "3,7\nl33",
+        "3,8\nl35",
         {
           "x": 1
         },
-        "9,0",
-        "9,1",
-        "9,2",
-        "9,3",
-        "9,4",
+        "9,0\nl103",
+        "9,1\nl102",
+        "9,2\nl101",
+        "9,3\nl100",
+        "9,4\nl99",
         {
           "c": "#aaaaaa",
           "w": 1.75
         },
-        "9,6\n\n\n7,0",
-        "9,7\n\n\n7,0",
-        "9,8",
+        "9,6\nl98\n\n7,0",
+        "9,7\nl97\n\n7,0",
+        "9,8\nl96",
         {
           "x": 0.5,
           "w": 2.75
         },
-        "9,6\n\n\n7,1"
+        "9,6\nl98\n\n7,1"
       ],
       [
         {
           "c": "#cccccc",
           "d": true
         },
-        "4,0\n\n\n0,1",
+        "4,0\nl47\n\n0,1",
         {
           "d": true
         },
-        "4,1\n\n\n0,1",
+        "4,1\nl45\n\n0,1",
         {
           "x": 0.25,
           "c": "#aaaaaa"
         },
-        "4,0\n\n\n0,0",
-        "4,1\n\n\n0,0",
+        "4,0\nl47\n\n0,0",
+        "4,1\nl45\n\n0,0",
         {
           "x": 0.5,
           "w": 1.25
         },
-        "4,2",
+        "4,2\nl44",
         {
           "w": 1.25
         },
-        "4,3",
+        "4,3\nl42",
         {
           "w": 1.25
         },
-        "4,4",
+        "4,4\nl41",
         {
           "w": 1.25
         },
-        "4,5\n\n\n3,0",
+        "4,5\nl39\n\n3,0",
         {
           "c": "#cccccc",
           "w": 2.25
         },
-        "4,7\n\n\n3,0",
+        "4,7\nl37\n\n3,0",
         {
           "x": 1,
           "w": 2.75
         },
-        "10,1\n\n\n8,0",
+        "10,1\nl106\n\n8,0",
         {
           "c": "#aaaaaa"
         },
-        "10,2\n\n\n9,0",
-        "10,3\n\n\n9,0",
-        "10,4\n\n\n9,0",
-        "10,6",
-        "10,7",
-        "10,8"
+        "10,2\nl109\n\n9,0",
+        "10,3\nl110\n\n9,0",
+        "10,4\nl111\n\n9,0",
+        "10,6\nl113",
+        "10,7\nl114",
+        "10,8\nl115"
       ],
       [
         {
           "x": 4.75,
           "w": 1.25
         },
-        "3,2\n\n\n2,1",
+        "3,2\nl29\n\n2,1",
         "3,3\n\n\n2,1",
         {
           "x": 1.5,
           "c": "#cccccc",
           "w": 2.25
         },
-        "4,5\n\n\n3,1",
+        "4,5\nl39\n\n3,1",
         {
           "c": "#aaaaaa",
           "w": 1.25
         },
-        "4,7\n\n\n3,1",
+        "4,7\nl37\n\n3,1",
         {
           "x": 1,
           "c": "#cccccc",
           "w": 1.25
         },
-        "10,0\n\n\n8,1",
+        "10,0\nl105\n\n8,1",
         {
           "w": 1.5
         },
-        "10,1\n\n\n8,1",
+        "10,1\nl106\n\n8,1",
         {
           "c": "#aaaaaa",
           "w": 1.25
         },
-        "10,2\n\n\n9,1",
+        "10,2\nl109\n\n9,1",
         {
           "w": 1.25
         },
-        "10,3\n\n\n9,1"
+        "10,3\nl110\n\n9,1"
       ],
       [
         {
@@ -383,13 +596,13 @@
           "c": "#cccccc",
           "w": 1.25
         },
-        "4,5\n\n\n3,2",
-        "4,6\n\n\n3,2",
+        "4,5\nl39\n\n3,2",
+        "4,6\nl38\n\n3,2",
         {
           "c": "#aaaaaa",
           "w": 1.25
         },
-        "4,7\n\n\n3,2"
+        "4,7\nl37\n\n3,2"
       ]
     ]
   }
