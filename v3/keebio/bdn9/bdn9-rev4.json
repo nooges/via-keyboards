@@ -1,0 +1,240 @@
+{
+  "name": "BDN9 Rev. 4",
+  "vendorId": "0xCB10",
+  "productId": "0x4133",
+  "matrix": {
+    "rows": 3,
+    "cols": 3
+  },
+  "keycodes": ["qmk_rgb_matrix_keycodes"],
+  "menus": [
+    {
+      "label": "Lighting",
+      "content": [
+        {
+          "label": "Backlight",
+          "content": [
+            {
+              "label": "Brightness",
+              "type": "range",
+              "options": [0, 255],
+              "content": ["id_qmk_rgb_matrix_brightness", 3, 1]
+            },
+            {
+              "showIf": "{id_firmware_version} < 1",
+              "content": [
+                {
+                  "label": "Effect",
+                  "type": "dropdown",
+                  "content": ["id_qmk_rgb_matrix_effect", 3, 2],
+                  "options": [
+                    ["All Off", 0],
+                    ["Solid Color", 1],
+                    ["Alphas Mods", 2],
+                    ["Gradient Up/Down", 3],
+                    ["Gradient Left/Right", 4],
+                    ["Breathing", 5],
+                    ["Band Sat.", 6],
+                    ["Band Val.", 7],
+                    ["Pinwheel Sat.", 8],
+                    ["Pinwheel Val.", 9],
+                    ["Spiral Sat.", 10],
+                    ["Spiral Val.", 11],
+                    ["Cycle All", 12],
+                    ["Cycle Left/Right", 13],
+                    ["Cycle Up/Down", 14],
+                    ["Rainbow Moving Chevron", 15],
+                    ["Cycle Out/In", 16],
+                    ["Cycle Out/In Dual", 17],
+                    ["Cycle Pinwheel", 18],
+                    ["Cycle Spiral", 19],
+                    ["Dual Beacon", 20],
+                    ["Rainbow Beacon", 21],
+                    ["Rainbow Pinwheels", 22],
+                    ["Raindrops", 23],
+                    ["Jellybean Raindrops", 24],
+                    ["Hue Breathing", 25],
+                    ["Hue Pendulum", 26],
+                    ["Hue Wave", 27],
+                    ["Pixel Rain", 28],
+                    ["Pixel Flow", 29],
+                    ["Pixel Fractal", 30],
+                    ["Typing Heatmap", 31],
+                    ["Digital Rain", 32],
+                    ["Solid Reactive Simple", 33],
+                    ["Solid Reactive", 34],
+                    ["Solid Reactive Wide", 35],
+                    ["Solid Reactive Multi Wide", 36],
+                    ["Solid Reactive Cross", 37],
+                    ["Solid Reactive Multi Cross", 38],
+                    ["Solid Reactive Nexus", 39],
+                    ["Solid Reactive Multi Nexus", 40],
+                    ["Splash", 41],
+                    ["Multi Splash", 42],
+                    ["Solid Splash", 43],
+                    ["Solid Multi Splash", 44]
+                  ]
+                },
+                {
+                  "showIf": "{id_qmk_rgb_matrix_effect} != 0",
+                  "label": "Effect Speed",
+                  "type": "range",
+                  "options": [0, 255],
+                  "content": ["id_qmk_rgb_matrix_effect_speed", 3, 3]
+                },
+                {
+                  "showIf": "{id_qmk_rgb_matrix_effect} != 0 && {id_qmk_rgb_matrix_effect} != 24 && {id_qmk_rgb_matrix_effect} != 28 && {id_qmk_rgb_matrix_effect} != 29 && {id_qmk_rgb_matrix_effect} != 32",
+                  "label": "Color",
+                  "type": "color",
+                  "content": ["id_qmk_rgb_matrix_color", 3, 4]
+                }
+              ]
+            },
+            {
+              "showIf": "{id_firmware_version} >= 1",
+              "content": [
+                {
+                  "label": "Effect",
+                  "type": "dropdown",
+                  "content": ["id_qmk_rgb_matrix_effect", 3, 2],
+                  "options": [
+                    ["All Off", 0],
+                    ["Solid Color", 1],
+                    ["Alphas Mods", 2],
+                    ["Gradient Up/Down", 3],
+                    ["Gradient Left/Right", 4],
+                    ["Breathing", 5],
+                    ["Band Sat.", 6],
+                    ["Band Val.", 7],
+                    ["Pinwheel Sat.", 8],
+                    ["Pinwheel Val.", 9],
+                    ["Spiral Sat.", 10],
+                    ["Spiral Val.", 11],
+                    ["Cycle All", 12],
+                    ["Cycle Left/Right", 13],
+                    ["Cycle Up/Down", 14],
+                    ["Rainbow Moving Chevron", 15],
+                    ["Cycle Out/In", 16],
+                    ["Cycle Out/In Dual", 17],
+                    ["Cycle Pinwheel", 18],
+                    ["Cycle Spiral", 19],
+                    ["Dual Beacon", 20],
+                    ["Rainbow Beacon", 21],
+                    ["Rainbow Pinwheels", 22],
+                    ["Raindrops", 23],
+                    ["Jellybean Raindrops", 24],
+                    ["Hue Breathing", 25],
+                    ["Hue Pendulum", 26],
+                    ["Hue Wave", 27],
+                    ["Pixel Rain", 28],
+                    ["Pixel Flow", 29],
+                    ["Pixel Fractal", 30],
+                    ["Typing Heatmap", 31],
+                    ["Digital Rain", 32],
+                    ["Solid Reactive Simple", 33],
+                    ["Solid Reactive", 34],
+                    ["Solid Reactive Wide", 35],
+                    ["Solid Reactive Multi Wide", 36],
+                    ["Solid Reactive Cross", 37],
+                    ["Solid Reactive Multi Cross", 38],
+                    ["Solid Reactive Nexus", 39],
+                    ["Solid Reactive Multi Nexus", 40],
+                    ["Splash", 41],
+                    ["Multi Splash", 42],
+                    ["Solid Splash", 43],
+                    ["Solid Multi Splash", 44],
+                    ["Direct (Per-Key)", 45]
+                  ]
+                },
+                {
+                  "showIf": "{id_qmk_rgb_matrix_effect} != 0 && {id_qmk_rgb_matrix_effect} != 45",
+                  "label": "Effect Speed",
+                  "type": "range",
+                  "options": [0, 255],
+                  "content": ["id_qmk_rgb_matrix_effect_speed", 3, 3]
+                },
+                {
+                  "showIf": "{id_qmk_rgb_matrix_effect} != 0 && {id_qmk_rgb_matrix_effect} != 24 && {id_qmk_rgb_matrix_effect} != 28 && {id_qmk_rgb_matrix_effect} != 29 && {id_qmk_rgb_matrix_effect} != 32 && {id_qmk_rgb_matrix_effect} != 45",
+                  "label": "Color",
+                  "type": "color",
+                  "content": ["id_qmk_rgb_matrix_color", 3, 4]
+                }
+              ]
+            },
+            {
+              "showIf": "{id_firmware_version} >= 2",
+              "content": [
+                {
+                  "label": "RGB Sleep Timer",
+                  "type": "dropdown",
+                  "options": [
+                    ["Never", 0],
+                    ["5 mins", 5],
+                    ["10 mins", 10],
+                    ["15 mins", 15],
+                    ["30 mins", 30],
+                    ["60 mins", 60],
+                    ["120 mins", 120],
+                    ["Custom", 255]
+                  ],
+                  "content": ["id_via_per_key_sleep_timer", 0, 7]
+                },
+                {
+                  "showIf": "{id_via_per_key_sleep_timer} == 255",
+                  "label": "Custom Sleep Timer (mins)",
+                  "type": "range",
+                  "options": [1, 1440],
+                  "content": ["id_via_per_key_sleep_timer_custom", 0, 8]
+                }
+              ]
+            },
+            {
+              "showIf": "{id_firmware_version} >= 1",
+              "content": [
+                {
+                  "showIf": "{id_qmk_rgb_matrix_effect} == 45",
+                  "label": "Per-Key Colors",
+                  "type": "color-palette",
+                  "content": ["id_qmk_rgb_matrix_color", 3, 4]
+                },
+                {
+                  "showIf": "{id_qmk_rgb_matrix_effect} == 45",
+                  "label": "Underglow Color",
+                  "type": "color",
+                  "content": ["id_via_per_key_underglow", 0, 2]
+                }
+              ]
+            },
+            {
+              "showIf": "{id_firmware_version} >= 2",
+              "content": [
+                {
+                  "showIf": "{id_qmk_rgb_matrix_effect} != 45",
+                  "label": "Status Indicators",
+                  "type": "color-palette",
+                  "content": ["id_via_per_key_indicators", 0, 5]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "layouts": {
+    "labels": ["Left Encoder", "Middle Encoder", "Right Encoder"],
+    "keymap": [
+      ["0,0\nl0\n\n0,0", "0,1\nl1\n\n1,0", "0,2\nl2\n\n2,0"],
+      ["1,0\nl5", "1,1\nl4", "1,2\nl3"],
+      ["2,0\nl7", "2,1\nl8", "2,2\nl9"],
+      [
+        {
+          "y": 0.25
+        },
+        "0,0\nl0\n\n0,1\n\n\n\n\n\ne0",
+        "0,1\nl1\n\n1,1\n\n\n\n\n\ne2",
+        "0,2\nl2\n\n2,1\n\n\n\n\n\ne1"
+      ]
+    ]
+  }
+}
